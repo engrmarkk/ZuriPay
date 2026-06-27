@@ -1,6 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const NotFound = () => {
+    // if its logged in, navigate to dashboard if not, to homepage
+    const navigate = useNavigate()
+    // handle redirect function
+    const handleRedirect = () => {
+        const isAuthenticated = localStorage.getItem('accessData')
+        if (isAuthenticated) {
+            navigate('/account/dashboard')
+        } else {
+            navigate('/')
+        }
+    }
     return (
         <div className="min-h-screen bg-[#0F1229] text-[#F7F7FA] flex items-center justify-center px-6">
             <div className="text-center max-w-md">
@@ -32,12 +43,12 @@ const NotFound = () => {
                     Let's get you back on the rails.
                 </p>
 
-                <Link
-                    to="/"
+                <button
+                    onClick={handleRedirect}
                     className="mt-8 inline-block px-7 py-3 rounded-full bg-[#F7F7FA] text-[#0F1229] font-medium text-[0.9rem] hover:bg-[#C9A24B] transition-colors duration-200"
                 >
                     Back to home
-                </Link>
+                </button>
             </div>
         </div>
     )
