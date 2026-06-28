@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
     Mail,
     Lock,
@@ -10,8 +10,12 @@ import {
     AlertCircle,
     Zap
 } from 'lucide-react'
+import { useToastActions } from '../../hooks/useToastActions'
 
 const Login = () => {
+    const navigate = useNavigate()
+    const hasVerifyEmail = false
+    const toast = useToastActions()
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -49,7 +53,22 @@ const Login = () => {
             return
         }
 
-        setIsLoading(true)
+        if (!hasVerifyEmail) {
+            setIsLoading(true)
+            toast.showWarning('Please verify your email')
+            await new Promise(resolve => setTimeout(resolve, 2000))
+            navigate(`/auth/verify-email/${formData.email}`)
+            return
+        } else {
+            // set localStorage
+            localStorage.setItem('accessData', JSON.stringify(formData))
+            setIsLoading(true)
+            toast.showSuccess('Login successful')
+            // wait for 3 secs
+            await new Promise(resolve => setTimeout(resolve, 3000))
+            // navigate to dashboard
+            navigate('/account/dashboard')
+        }
 
         // Simulate API call
         try {
@@ -214,7 +233,7 @@ const Login = () => {
                                 Remember me
                             </label>
                             <Link
-                                to="/forgot-password"
+                                to="/auth/forgot-password"
                                 className="text-sm text-[#C9A24B] hover:text-[#D4B35C] transition-colors"
                             >
                                 Forgot password?
