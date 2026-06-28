@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
     Mail,
     Lock,
@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 
 const Signup = () => {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -105,6 +106,7 @@ const Signup = () => {
             await new Promise(resolve => setTimeout(resolve, 1500))
             console.log('Signup attempt:', formData)
             // Handle signup logic here
+            navigate(`/auth/verify-email/${formData.email}`)
         } catch (error) {
             console.error('Signup error:', error)
         } finally {
