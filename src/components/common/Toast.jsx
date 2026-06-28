@@ -47,13 +47,13 @@ const Toast = ({ id, message, type = 'info', duration = 5000, onClose }) => {
     const getStyles = () => {
         switch (type) {
             case 'success':
-                return 'border-green-500/20 bg-green-500/10'
+                return 'border-green-500/30 bg-[#0F1229]'
             case 'error':
-                return 'border-red-500/20 bg-red-500/10'
+                return 'border-red-500/30 bg-[#0F1229]'
             case 'warning':
-                return 'border-yellow-500/20 bg-yellow-500/10'
+                return 'border-yellow-500/30 bg-[#0F1229]'
             default:
-                return 'border-blue-500/20 bg-blue-500/10'
+                return 'border-blue-500/30 bg-[#0F1229]'
         }
     }
 
