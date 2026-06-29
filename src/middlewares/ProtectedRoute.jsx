@@ -1,6 +1,6 @@
 // components/ProtectedRoute.jsx
 import { Navigate } from 'react-router-dom'
-import { useToastActions } from '../hooks/useToastActions'
+import { useToastActions } from '../hooks/useToastActions.js'
 import { useEffect } from "react";
 
 const ProtectedRoute = ({ children }) => {
