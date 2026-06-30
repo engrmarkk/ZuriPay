@@ -14,7 +14,7 @@ import { useToastActions } from '../../hooks/useToastActions'
 
 const Login = () => {
     const navigate = useNavigate()
-    const hasVerifyEmail = false
+    const hasVerifyEmail = Math.random() < 0.5
     const toast = useToastActions()
     const [formData, setFormData] = useState({
         email: '',
