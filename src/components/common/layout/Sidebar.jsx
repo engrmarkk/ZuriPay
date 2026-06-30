@@ -31,6 +31,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     // handle logout, remove accessData from localStorage
     const handleLogout = () => {
         console.log('Logout clicked')
+        sessionStorage.setItem('isLoggingOut', 'true')
         localStorage.removeItem('accessData')
         console.log('accessData removed')
         navigate('/auth/login')
