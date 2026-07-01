@@ -78,21 +78,18 @@ const SettingsPage = () => {
             description: 'Update your password regularly',
             path: '/account/settings/change-password'
         },
-        // {
-        //     icon: Fingerprint,
-        //     label: 'Biometric Login',
-        //     description: 'Use fingerprint or face ID',
-        //     isToggle: true,
-        //     key: 'biometricLogin'
-        // },
-        // {
-        //     icon: Clock,
-        //     label: 'Session Timeout',
-        //     description: 'Auto logout after inactivity',
-        //     isSelect: true,
-        //     key: 'sessionTimeout',
-        //     options: ['15', '30', '60', '120']
-        // },
+        {
+            icon: Shield,
+            label: 'Change Transaction Pin',
+            description: 'Update your transaction pin',
+            path: '/account/settings/change-pin'
+        },
+        {
+            icon: Key,
+            label: 'Reset Transaction pin',
+            description: 'Reset your transaction pin',
+            path: '/account/settings/reset-pin'
+        },
         // {
         //     icon: Key,
         //     label: 'API Keys',
