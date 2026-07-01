@@ -28,6 +28,8 @@ import Cable from '../pages/authRequired/payment/bills/Cable'
 import Betting from '../pages/authRequired/payment/bills/Betting'
 import Notification from '../pages/authRequired/Notification'
 import HelpCenter from '../pages/authRequired/HelpCenter'
+import ChangePin from '../pages/authRequired/ChangePin'
+import ResetPin from '../pages/authRequired/ResetPin'
 
 
 export const router = createBrowserRouter([
@@ -73,7 +75,7 @@ export const router = createBrowserRouter([
             { index: true, element: <Navigate to="/account/dashboard" replace /> },
             { path: 'dashboard', element: <Dashboard /> },
             { path: 'transactions', element: <Transactions /> },
-            { path: 'wallets', element: <Wallets /> },
+            // { path: 'wallets', element: <Wallets /> },
             { path: 'profile', element: <Profile /> },
             { path: 'notifications', element: <Notification /> },
             { path: 'help', element: <HelpCenter /> },
@@ -82,6 +84,8 @@ export const router = createBrowserRouter([
                 children: [
                     { index: true, element: <SettingsPage /> },
                     { path: 'change-password', element: <ChangePassword /> },
+                    { path: 'change-pin', element: <ChangePin /> },
+                    { path: 'reset-pin', element: <ResetPin /> },
                 ]
             },
             {
