@@ -35,7 +35,10 @@ import ResetPin from '../pages/authRequired/ResetPin'
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Layout />,
+        element: (<UnProtectedRoute>
+            <Layout />
+            </UnProtectedRoute>
+        ),
         children: [
             { index: true, element: <Home /> },
             { path: 'bills', element: <Bills /> },
