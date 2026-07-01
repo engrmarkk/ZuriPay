@@ -48,7 +48,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         { path: '/account/pay/electricity', icon: Lightbulb, label: 'Electricity' },
         { path: '/account/pay/cable', icon: Tv, label: 'Cable TV' },
         { path: '/account/transactions', icon: Receipt, label: 'Transactions' },
-        { path: '/account/wallets', icon: Wallet, label: 'Wallet' },
+        // { path: '/account/wallets', icon: Wallet, label: 'Wallet' },
         { path: '/account/profile', icon: Users, label: 'Profile' },
         { path: '/account/settings', icon: Settings, label: 'Settings' },
     ]
